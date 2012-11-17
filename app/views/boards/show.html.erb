@@ -1,0 +1,12 @@
+<div class="span12 well" align="center">
+  <h3><%= @board.name %> 二手交易板</h3>
+</div>
+<div class="span12">
+  <hr>
+  <% if current_user.present? %>
+  <%= link_to("張貼", new_board_deal_path(@board), :class => "btn btn-primary")%>
+  <% end %>
+  <% @deals.each do |deal| %>
+
+  <% end %>
+</div>

@@ -11,9 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031155354) do
+ActiveRecord::Schema.define(:version => 20121106054524) do
+
+  create_table "boards", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "deals", :force => true do |t|
+    t.string   "name"
+    t.string   "spec"
+    t.string   "deliver_method"
+    t.integer  "price"
+    t.text     "detail"
+    t.integer  "user_id"
+    t.integer  "board_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "warranty"
+    t.string   "accessories"
+    t.boolean  "original_receipt"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "deal_id"
+    t.string   "file_name"
+    t.integer  "file_width"
+    t.integer  "file_height"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
+    t.string   "fb_id"
+    t.string   "name"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -26,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20121031155354) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "fb_id"
-    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

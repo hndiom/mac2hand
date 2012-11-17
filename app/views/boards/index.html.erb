@@ -1,0 +1,15 @@
+<div class="span12 well" align="center">
+  <h3>二手 Mac 買賣</h3>
+</div>
+<div class="span12 well well-modified" align="center">
+  <% @boards.each do |board| %>
+    <%= link_to(board_path(board), :tilte => board.name) do %>
+    <div style="display:block;width: 188px;float: left;">
+      <%= image_tag("/#{board.image}") %>
+      <br />
+      <%= board.name %>
+      <br /><br />
+    </div>  
+    <% end %>
+  <% end %>
+</div>

@@ -5,6 +5,15 @@ Mac2hand::Application.routes.draw do
     get "logout" => "devise/sessions#destroy"
   end
 
-  root :to => 'high_voltage/pages#show', :id => 'welcome'
+  #root :to => 'high_voltage/pages#show', :id => 'welcome'
 
+  resources :users do
+    resources :deals
+  end
+
+  resources :boards do
+    resources :deals
+  end
+
+  root :to => "boards#index"
 end

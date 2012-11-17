@@ -13,3 +13,19 @@ ul.nav li.dropdown:hover .dropdown-menu{
 .content {
   min-height: 500px;
 }
+
+.well-modified {
+  background-color: white !important;
+}
+
+.well {
+  padding: 0px !important;
+}
+
+.simple_form .control-label label{
+  float:left;
+}
+
+.simple_form .controls label.checkbox {
+  margin-left: 150px;
+}
