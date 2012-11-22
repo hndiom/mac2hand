@@ -1,8 +1,0 @@
-AwsCredentialFile=/Users/Unayung/.elasticbeanstalk/aws_credential_file
-ApplicationName=mac2hand
-EnvironmentName=mac2hand-env
-Region=ap-northeast-1
-ServiceEndpoint=https://elasticbeanstalk.ap-northeast-1.amazonaws.com
-RdsEndpoint=https://rds.ap-northeast-1.amazonaws.com
-SolutionStack=64bit Amazon Linux running Ruby 1.9.3
-RdsEnabled=No
