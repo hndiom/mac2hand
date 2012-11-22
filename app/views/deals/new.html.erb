@@ -3,17 +3,19 @@
 </div>
 <div class="span12 well well-modified" align="center">
   <br />
-  <div class="span6 offset3">
+  <div class="span8 offset2">
     <%= simple_form_for(@deal, :url => board_deals_path ) do |f| %>
-    <%= f.input :name, :label => "商品名稱" %>
-    <%= f.input :spec, :label => "商品規格" %>
-    <%= f.input :warranty, :label => "保固期限" %>
-    <%= f.input :accessories, :label => "相關配件" %>
-    <%= f.input :original_receipt, :label => "原始發票" %>
-    <%= f.input :deliver_method, :label => "交貨方式" %>
-    <%= f.input :price, :label => "欲售價格" %>
-    <%= f.input :detail, :as => "text", :label => "詳細說明" %>
-    <%= f.button :submit, "送出" ,:disable_with => "請稍後...", :class => "submit-form btn-success" %>
+    <%= f.input :name, :label => "商品名稱", :input_html => {:class => "input-large"} %>
+    <%= f.input :spec, :label => "商品規格", :input_html => {:class => "input-large"} %>
+    <%# f.input :warranty, :label => "保固期限", :as => :date %>
+    <%= f.input :deliver_method, :label => "交貨方式", :input_html => {:class => "input-large"} %>
+    <%= f.input :price, :label => "欲售價格", :input_html => {:class => "input-large"} %>
+    <%= f.input :accessories, :label => "相關配件", :input_html => {:class => "input-large"} %>
+    <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:class =>"input-large"} %>
+    <%= f.simple_fields_for :photos do |p| %>
+      <%= p.input :photo, :as => :file %>
+    <% end %>
+    <%= f.button :submit, "送出" ,:disable_with => "請稍後...", :class => "submit-form btn-success btn-large" %>
     <% end %>
   </div>
 </div>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddReleaseDateToDeals < ActiveRecord::Migration
   def change
     add_column :deals, :warranty, :string

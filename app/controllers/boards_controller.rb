@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
 
   before_filter :find_board, :except => [:index, :new, :create]

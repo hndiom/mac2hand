@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 
-class ImageUploader < CarrierWave::Uploader::Base
-
+class PhotoUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
+  include CarrierWave::Meta
   # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
@@ -12,13 +12,43 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  def id_partition(attachment)
+    case id = attachment.id
+    when Integer
+      ("%09d" % id).scan(/\d{3}/).join("/")
+    when String
+      id.scan(/.{3}/).first(3).join("/")
+    else
+      nil
+    end
+  end
+    
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+   # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{id_partition(model)}"
+  end
+
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  def default_url
+     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
+
+  process :store_meta
+  
+  # Create different versions of your uploaded files:
+  version :tiny do
+     process :resize_to_fill => [50, 50]
+     process :store_meta
+  end
+  
+  version :medium do 
+     process :resize_to_fit => [330, 440]
+     process :store_meta
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

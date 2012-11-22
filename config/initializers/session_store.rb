@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Be sure to restart your server when you modify this file.
 
 Mac2hand::Application.config.session_store :cookie_store, key: '_mac2hand_session'
