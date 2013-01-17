@@ -6,7 +6,7 @@ Mac2hand::Application.routes.draw do
     get "logout" => "devise/sessions#destroy"
   end
 
-  #root :to => 'high_voltage/pages#show', :id => 'welcome'
+  root :to => 'high_voltage/pages#show', :id => 'welcome'
 
   resources :users do
     resources :deals
@@ -16,5 +16,7 @@ Mac2hand::Application.routes.draw do
     resources :deals
   end
 
-  root :to => "boards#index"
+  #root :to => "boards#index"
+  match "/account" => "users#edit", :as => :account
+
 end

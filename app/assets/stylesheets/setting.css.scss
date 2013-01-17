@@ -1,0 +1,25 @@
+ul.nav{
+  /*font-size: 18px;*/
+  li.active {
+    background-color: rgb(240, 240, 240);
+    color: #555555;
+  }
+
+  li{
+    a.username{
+      color: #22aaee;
+    }
+  }
+}
+
+// ul.nav li.active {
+//   background-color: rgb(240, 240, 240);
+//   color: #555555;
+// }
+
+// ul.nav li{
+//   a.username {
+//     color: #22aaee;
+//   }
+  
+// }

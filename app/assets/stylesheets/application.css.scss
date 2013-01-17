@@ -10,6 +10,10 @@
  *
  *= require_self
  */
-@import "bootstrap-setting";
-@import "twitter/bootstrap";
-@import "bootstrap-override";
+
+@import "bootstrap";
+@import "style";
+@import "font-awesome";
+@import "animate";
+@import "prettyPhoto";
+@import "setting"

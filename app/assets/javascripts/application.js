@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap/alert
+//= require bootstrap.min
+//= require jquery.onecarousel.min
+//= require jquery.prettyPhoto
+//= require jquery.fitvids
+//= require jquery.isotope.min

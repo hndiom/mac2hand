@@ -1,15 +1,40 @@
-<div class="span12 well" align="center">
-  <h3>二手 Mac 交易</h3>
-</div>
-<div class="span12 well well-modified" align="center">
-  <% @boards.each do |board| %>
-    <%= link_to(board_path(board), :tilte => board.name) do %>
-    <div style="display:block;width: 188px;float: left;">
-      <%= image_tag("/#{board.image}") %>
-      <br />
-      <%= board.name %>
-      <br /><br />
-    </div>  
-    <% end %>
-  <% end %>
+<section class="section-page-header">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="page-header">
+          
+        </div>
+      </div>
+    </div>
+    <img src="images/divider_shadow.png" title="" alt="">
+  </div>
+</section>
+<div class="span12" align="center">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Post Date</th>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Post by</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.each do |board| %>
+        <% board.deals.each do |deal| %>
+          <tr>
+            <td><%= deal.id %></td>
+            <td><%= deal.created_at %></td>
+            <td><%= board.name %></td>
+            <td><%= deal.name %></td>
+            <td><%= deal.price %></td>
+            <td><%= deal.user.name %></td>
+          </tr>
+        <% end %>  
+      <% end %>
+    </tbody>
+  </table>
 </div>

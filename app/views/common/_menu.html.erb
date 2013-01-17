@@ -1,32 +1,24 @@
-<div class="navbar navbar-fixed-top ">
-      <div class="navbar-inner top ">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-
-          <%= link_to(Setting.app_name, Setting.domain , :class => "brand" )%>
-
-          <%# render :partial => "common/search_form" %>
-
-   
-     
-          <div class="nav-collapse">
-      
-              <%# render_list :class => "nav" do |li|
-                li << link_to("Link-1","#")
-                li << link_to("Link-2","#")
-                li << link_to("Link-3","#")
-              end %>
-              
-              <%= render :partial => "common/user_nav"%>
-
-          </div>
-    </div>
-  </div>
-
-  <%= yield :submenu %>
-
-</div>
+<header class="header">
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="brand-wrapper">
+					<%= link_to(root_path, :class => "brand") do %>
+						Mac<span>2Hand</span>
+					<% end -%>
+				</div>
+				<%= render_list :class => "nav" do |li| %>
+        <% li << link_to("Home", "/")  %>
+        <% li << link_to("Deals", "/boards") %>
+        <%# li << link_to("Contact", "/contact_us") %>
+				<% if current_user %>
+					<% li << link_to(current_user.name, account_path, :class => "username") %>
+					<% li << link_to("Logout", "/logout") %>
+				<% else %>
+					<% li << link_to( "Login", user_omniauth_authorize_path(:facebook), :class => "username" ) %>
+				<% end %>
+        <% end %>
+			</div>
+		</div>
+	</div>
+</header>
