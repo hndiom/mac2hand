@@ -1,22 +1,17 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
 
-  def pretty_date(date)
-    date.to_s(:short)
-  end
+  def ibutton(text, path, options = {})
+    color_btn_class = ["btn-primary", "btn-danger", "btn-info" , "btn-warning", "btn-success", "btn-inverse"]
 
-  def render_deal_photo(deal, type)
-    if deal.photos.present?
-      case type
-      when "tiny"
-        image_tag(deal.photos.first.photo.tiny)
-      when "medium"
-        image_tag(deal.photos.first.photo.medium)
-      when "original"
-        image_tag(deal.photos.first.photo)
-      end
-    else
-      "無商品圖片"
+    class_name = (options[:class].present?)? options[:class] : ""
+
+    if options[:iclass].present?
+      options[:iclass] << " icon-white" if !(color_btn_class & class_name.split(" ")).empty?
+    end
+    link_to path, options do 
+      content_tag(:i, "", :class => options[:iclass]) + content_tag(:span, " #{text}" )
     end
   end
+  
 end

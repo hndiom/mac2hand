@@ -2,11 +2,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def is_login?
+  def login_required
     if current_user.blank?
-      false
-    else
-      true
+      respond_to do |format|
+        format.html  {
+          authenticate_user!
+        }
+        format.all { 
+          head(:unauthorized)
+        }
+      end
     end
   end
+
 end

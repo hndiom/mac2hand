@@ -1,0 +1,14 @@
+<section class="section-page-header">
+  <div class="container">
+    <%= image_tag("/images/divider_shadow.png") %>
+  </div>
+</section>
+<div class="span6 offset3 well">
+  <div class="box clearfix">
+    <h3>使用 Facebook 登入，輕鬆刊登二手Mac商品。</h3>
+    <br>
+    <div align="center">
+    <%= link_to("使用 Facebook 登入", Setting.domain + user_omniauth_authorize_path(:facebook) , :class => "btn btn-facebook") %> 
+    </div>
+  </div>
+</div>

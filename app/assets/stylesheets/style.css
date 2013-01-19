@@ -9,6 +9,51 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+a.deal-title{
+    font-size: 14px;
+}
+
+th.text-center, td.text-center{
+    text-align: center;
+}
+
+div.detail{
+    font-size: 16px;
+}
+span.label{
+    font-size: 16px;
+}
+span.label-step{
+    padding: 5px;
+    margin: 10px;
+    font-weight: normal;
+}
+
+textarea.text{
+    width: 250px;
+}
+
+.btn.btn-facebook {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(48, 71, 126, 0.8);
+  box-shadow: 0 0 3px rgba(255,255,255,0.7) inset, 0 0 1px rgba(0,0,0,0.5);
+  border: #30477e 1px solid;
+  background: #3B5698;
+  
+  &:hover {
+    text-shadow: 1px 1px 1px rgba(48, 71, 126, 1);
+    background: #36508f;
+    
+  }
+
+  &:active {
+    text-shadow: 1px -1px 1px rgba(48, 71, 126, 1);
+    background: #3f5ca4;
+    
+  }
+}
+
+
 /* Prizing Table */
 .pricing-table {
     background: #fff;
@@ -350,10 +395,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Page Header */
 .section-page-header {
-    padding-top: 30px;
+    /*padding-top: 30px;*/
     padding-bottom: 10px;
     text-align: center;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 .section-page-header .page-header {
     margin-bottom: 0;

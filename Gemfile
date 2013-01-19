@@ -20,6 +20,7 @@ group :assets do
   gem "jquery-ui-rails", "= 2.0.2"
 end
 
+gem "placeholdit"
 gem "jquery-rails"
 gem "devise"
 gem "omniauth"
@@ -39,6 +40,7 @@ gem "turbo-sprockets-rails3"
 gem "rmagick"
 gem "carrierwave"
 gem "carrierwave-meta"
+gem "jquery-fileupload-rails"
 
 group :assets do
   gem "compass-rails"

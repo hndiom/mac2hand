@@ -12,10 +12,16 @@ Mac2hand::Application.routes.draw do
     resources :deals
   end
 
-  resources :boards do
-    resources :deals
+  resources :deals do
+    resources :photos
+    member do
+      get :publish
+      get :cancel_publish
+    end
+    
   end
 
+  resources :photos
   #root :to => "boards#index"
   match "/account" => "users#edit", :as => :account
 

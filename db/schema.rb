@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121142921) do
+ActiveRecord::Schema.define(:version => 20130119175917) do
 
-  create_table "boards", :force => true do |t|
+  create_table "categories", :force => true do |t|
     t.string   "name"
-    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -26,14 +25,19 @@ ActiveRecord::Schema.define(:version => 20121121142921) do
     t.string   "warranty"
     t.string   "deliver_method"
     t.string   "accessories"
-    t.boolean  "original_receipt"
+    t.string   "original_receipt"
     t.integer  "price"
     t.text     "detail"
     t.integer  "user_id"
-    t.integer  "board_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "published",        :default => false
+    t.datetime "published_at"
+    t.string   "category_id"
+    t.string   "contact_by"
   end
+
+  add_index "deals", ["category_id"], :name => "index_deals_on_type"
 
   create_table "photos", :force => true do |t|
     t.integer  "deal_id"
@@ -57,18 +61,19 @@ ActiveRecord::Schema.define(:version => 20121121142921) do
   create_table "users", :force => true do |t|
     t.string   "fb_id"
     t.string   "name"
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                                :default => "", :null => false
+    t.string   "encrypted_password",                   :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                        :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+    t.string   "cellphone",              :limit => 10
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

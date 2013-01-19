@@ -1,0 +1,42 @@
+<section class="section-page-header">
+  <div class="container">
+    <%= image_tag("/images/divider_shadow.png") %>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="span12 toolbar">
+      <%= link_to("我要刊登", new_deal_path, :class => "btn btn-info") %>
+      <hr>
+    </div>
+    <div class="span12" align="center">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="50px">No.</th>
+            <th width="80px">類別</th>
+            <th width="50px"></th>
+            <th class="text-center">名稱</th>
+            <th width="100px">售價</th>
+            <th width="100px">賣方</th>
+            <th width="100px">發佈日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @deals.each do |deal| %>
+            <tr>
+              <td><%= deal.id %></td>
+              <td><%= render_deal_category_name(deal) %></td>
+              <td><%= render_deal_photo_for_list(deal) %></td>
+              <td class="text-center"><%= link_to(deal.name, deal_path(deal), :class => "deal-title") %></td>
+              <td><%= render_deal_price(deal) %></td>
+              <td><%= render_deal_user_name(deal) %></td>
+              <td><%= render_deal_published_at(deal) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate(@deals) %>
+    </div>
+  </div>
+</div>

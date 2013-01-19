@@ -1,6 +1,39 @@
-<div class="span12 well" align="center">
-  <h3><%= @deal.name %></h3>
-</div>
-<div class="span12 well">
-  <%= render_deal_photo(@deal, "medium")%>
-</div>
+<section class="section-page-header">
+  <div class="container">
+    <%= image_tag("/images/divider_shadow.png") %>
+  </div>
+</section>
+<section class="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="span7">
+        <%= render :partial => "deal_photo_slide", :locals => {:deal => @deal} %>
+      </div>
+      <div class="span5">
+        <%= render :partial => "deal_info_box", :locals => {:deal => @deal} %>
+      </div>
+    </div>    
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="well info-box">
+        TODO: 您可能也會喜歡...
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% content_for :javascripts do %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#myCarousel').oneCarousel({
+      easeIn: 'rotateIn',
+      interval: 5000,
+      pause: 'hover'
+    });
+  });
+</script>
+<% end -%>

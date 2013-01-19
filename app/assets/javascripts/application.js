@@ -19,3 +19,4 @@
 //= require jquery.prettyPhoto
 //= require jquery.fitvids
 //= require jquery.isotope.min
+//= require jquery-fileupload
