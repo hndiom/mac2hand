@@ -2,7 +2,7 @@
 class Deal < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :user
-  has_many :photos
+  has_many :photos, :dependent => :destroy
   belongs_to :category
   accepts_nested_attributes_for :photos
 
