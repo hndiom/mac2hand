@@ -25,5 +25,6 @@ Mac2hand::Application.routes.draw do
   resources :photos
   
   match "/account" => "users#edit", :as => :account
+  match "/account/profile" => "users#profile"
 
 end

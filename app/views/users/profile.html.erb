@@ -1,0 +1,23 @@
+<%= render :partial => "common/page_header" %>
+<div class="container">
+  <div class="row">
+    <div class="span12" align="center">
+      <p>
+        <span class="label label-step label-info">編輯個人資料</span>
+      </p>
+    </div>
+    <div class="span12" align="center">
+      <%= simple_form_for(@user, :url => user_path(@user) ) do |f| %>
+        <%# content_tag(:div, :style => "float: left;") do %>
+          <%= f.input :name, :label => "顯示名稱"%>
+          <%= f.input :email, :label => "E-Mail"%>
+          <%= f.input :cellphone, :label => "手機號碼"%>
+        <%# end %>
+        <%# content_tag(:div, :style => "float: right;") do %>
+          
+          <%= f.button :submit, "存檔" ,:disable_with => "請稍後...", :class => "submit-form btn-success btn-large" %>
+        <%# end %>
+      <% end %>
+    </div>
+  </div>
+</div>
