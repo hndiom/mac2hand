@@ -6,8 +6,8 @@ Mac2hand::Application.routes.draw do
     get "logout" => "devise/sessions#destroy"
   end
 
-  #root :to => 'high_voltage/pages#show', :id => 'welcome'
-  root :to => "deals#index"
+  root :to => 'high_voltage/pages#show', :id => 'welcome'
+  #root :to => "deals#index"
   
   resources :users do
     resources :deals

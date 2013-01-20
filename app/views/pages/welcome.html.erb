@@ -1,4 +1,52 @@
 <%= render :partial => "common/page_header" %>
-<div class="span12" align="center">
-	<%= image_tag("/mac.jpeg") %>
-</div>
+<section class="welcome-message">
+  <div class="container">
+    <div class="span8 offset2">
+      <div class="hero-unit">
+        <div class="pull-left"><%= image_tag("Apple_Logo.png", :height => "100px", :width => "100px") %></div>
+        <h4>
+          <small>Apple 產品每年都更新一次讓你又愛又狠嗎?</small> <br />這裡讓你快速脫手換新機
+        </h4>
+        <h4>
+          <small>想從 Windows 跳槽到 OSX 的懷抱, 卻又害怕轉換上有困難嗎? </small> <br />
+          這裡讓你找到符合預算的第一部 Apple
+        </h4>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section class="services">
+  <div class="container">
+    <div class="row">
+      <div class="span6">
+        <div class="well well-small">
+          <h3><i class="icon-edit"></i> <%= link_to("我要登錄二手商品!", new_deal_path) %></h3>
+        </div>
+      </div>
+      <div class="span6">
+        <div class="well well-small">
+          <h3><i class="icon-edit"></i> <%= link_to("我要看目前的商品!", deals_path) %></h3>
+        </div>
+      </div>
+      <!-- <div class="span4">
+          <div class="well well-small">
+            <span class="service-icon"><i class="icon-edit"></i></span>
+            <h3>1.輕鬆編輯</h3>
+          </div>
+      </div>
+      <div class="span4">
+          <div class="well well-small">
+            <span class="service-icon"><i class="icon-th"></i></span>
+            <h3>2.上傳圖片</h3>
+          </div>
+      </div>
+      <div class="span4">
+          <div class="well well-small">
+            <span class="service-icon"><i class="icon-share"></i></span>
+            <h3>3.Fb 分享</h3>
+          </div>
+       --></div>
+    </div>
+  </div>
+</section>
