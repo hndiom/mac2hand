@@ -29,6 +29,9 @@ class DealsController < ApplicationController
     @deal = Deal.find(params[:id])
     set_page_title("#{@deal.name}")
     set_page_description("只要 NTD #{@deal.price}")
+    if @deal.photos.present?
+      set_page_image(Setting.domain+@deal.photos.first.photo.to_s)
+    end
   end
 
   def edit
