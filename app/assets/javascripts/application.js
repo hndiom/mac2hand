@@ -20,3 +20,18 @@
 //= require jquery.fitvids
 //= require jquery.isotope.min
 //= require jquery-fileupload
+
+function dismissAlertAfterTime(timespan) {
+  $('.alert').each(function(i, e) {
+    if($(e).find('.close').length > 0) setTimeout(function() {
+     $(e).alert('close');
+    }, timespan);
+  });
+}
+
+function insertAutoDismissAlert(notice_message) {
+  $(notice_message).insertBefore(".container .content");
+  dismissAlertAfterTime(3000);
+}
+
+dismissAlertAfterTime(3000);

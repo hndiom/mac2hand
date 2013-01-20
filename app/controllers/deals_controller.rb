@@ -7,12 +7,14 @@ class DealsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @deal = Deal.new
+    @user = current_user
     @categories = Category.all
   end
 
   def create
+    @user = current_user
+    @categories = Category.all
     @deal = Deal.new(params[:deal])
     @deal.user_id = current_user.id
     

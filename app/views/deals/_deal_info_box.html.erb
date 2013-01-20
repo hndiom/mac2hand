@@ -1,7 +1,8 @@
 <div class="project-widget well info-box">
-  <h4><span class="label label-info">賣方姓名</span> <%= render_deal_seller(deal) %></h4>
-  <hr>
+  <%= render_deal_action_bar(current_user, deal) %>
   <h4><span class="label label-info">商品名稱</span> <%= render_deal_name(deal) %></h4>
+  <hr>
+  <h4><span class="label label-info">賣方姓名</span> <%= render_deal_seller(deal) %></h4>
   <hr>
   <h4><span class="label label-info">商品規格</span> <%= render_deal_spec(deal) %></h4>
   <hr>

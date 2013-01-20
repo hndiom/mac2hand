@@ -1,8 +1,4 @@
-<section class="section-page-header">
-  <div class="container">
-    <%= image_tag("/images/divider_shadow.png") %>
-  </div>
-</section>
+<%= render :partial => "common/page_header" %>
 <div class="container">
   <div class="row">
     <div class="span12" align="center">
@@ -11,7 +7,7 @@
         <span class="label label-step">2. 上傳商品圖片</span>
       </p>
     </div>
-    <div class="span6 offset3 well" align="center">
+    <div class="span6 offset3 well" align="">
         <%= simple_form_for(@deal, :url => deals_path ) do |f| %>
           <%= content_tag(:div, :style => "float: left;") do %>
             <%= f.input :name, :label => "商品名稱", :placeholder => "ex. 二手 2011 MBP 出售" %>
@@ -23,7 +19,7 @@
           <%= content_tag(:div, :style => "float: right;") do %>
             <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
             <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>
-            <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => ["郵件 #{@user.email}", "手機 #{@user.cellphone}", "其它"] %>
+            <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => [@user.email, @user.cellphone, "其它"] %>
             <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:cols => "40", :rows => "10"} %>
             <%= f.button :submit, "存檔, 下一步" ,:disable_with => "請稍後...", :class => "submit-form btn-success btn-large" %>
           <% end %>

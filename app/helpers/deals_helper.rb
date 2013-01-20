@@ -2,7 +2,7 @@
 module DealsHelper
 
   def render_deal_price(deal)
-    number_to_currency(deal.price.to_i, :unit => "NTD ")
+    number_to_currency(deal.price.to_i, :unit => "NTD ", :precision => 0)
   end
 
   def render_deal_seller(deal)
@@ -107,5 +107,25 @@ module DealsHelper
 
   def render_deal_category_name(deal)
     deal.category.name
+  end
+
+  def render_deal_action_bar(user, deal)
+    if user == deal.user
+      ibutton("修改", edit_deal_path(deal), :class => "btn-options", :iclass => "icon icon-edit")+" "+
+      ibutton("刪除", deal_path(deal),:method => "delete", :class => "btn-options", :iclass => "icon icon-trash")+" "+
+      if deal.is_published?
+        ibutton("取消", cancel_publish_deal_path(deal), :class => "btn-options", :iclass => "icon icon-flag")
+      else
+        ibutton("發佈", publish_deal_path(deal), :class => "btn-options", :iclass => "icon icon-flag")
+      end
+    end
+  end
+
+  def render_deal_index_number(index, page)
+    if page.present? && page.to_i != 1
+      ((page.to_i-1)*5)+index+1
+    else
+      index+1
+    end
   end
 end

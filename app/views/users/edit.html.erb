@@ -1,12 +1,8 @@
-<section class="section-page-header">
-  <div class="container">
-    <%= image_tag("/images/divider_shadow.png") %>
-  </div>
-</section>
+<%= render :partial => "common/page_header" %>
 <div class="container">
   <div class="row">
     <div class="span12 toolbar">
-      <%= link_to("我要刊登", new_deal_path, :class => "btn btn-info") %>
+      <%= link_to("我要刊登", new_deal_path, :class => "btn btn-info btn-large") %>
       <hr>
     </div>
     <div class="span12" align="center">
@@ -23,9 +19,9 @@
           </tr>
         </thead>
         <tbody>
-          <% @deals.each do |deal| %>
+          <% @deals.each_with_index do |deal,index| %>
             <tr>
-              <td><%= deal.id %></td>
+              <td><%= index+1 %></td>
               <td><%= render_deal_category_name(deal) %></td>
               <td><%= render_deal_photo_for_list(deal) %></td>
               <td class="text-center"><%= link_to(deal.name, deal_path(deal), :class => "deal-title") %></td>

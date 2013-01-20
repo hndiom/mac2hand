@@ -9,6 +9,8 @@ class Deal < ActiveRecord::Base
   scope :is_published, where("published = 1")
   scope :recent, order("published_at DESC")
 
+  validates_presence_of :name, :spec, :deliver_method, :price, :contact_by
+
   def publish
     self.published = true
     self.published_at = DateTime.current()
