@@ -27,6 +27,8 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    set_page_title("#{@deal.name}")
+    set_page_description("只要 NTD #{@deal.price}")
   end
 
   def edit
