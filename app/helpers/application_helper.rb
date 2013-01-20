@@ -14,4 +14,9 @@ module ApplicationHelper
     end
   end
   
+  def render_user_fb_avatar(user)
+    if user.fb_id.present?
+      image_tag("https://graph.facebook.com/#{user.fb_id}/picture")
+    end
+  end
 end
