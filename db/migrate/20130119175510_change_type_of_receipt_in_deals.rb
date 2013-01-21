@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeTypeOfReceiptInDeals < ActiveRecord::Migration
   def change
     change_column :deals, :original_receipt, :string

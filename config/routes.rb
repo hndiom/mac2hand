@@ -15,6 +15,7 @@ Mac2hand::Application.routes.draw do
 
   resources :deals do
     resources :photos
+    resources :comments
     member do
       get :publish
       get :cancel_publish

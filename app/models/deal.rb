@@ -2,8 +2,11 @@
 class Deal < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :user
-  has_many :photos, :dependent => :destroy
   belongs_to :category
+
+  has_many :photos, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+
   accepts_nested_attributes_for :photos
 
   scope :is_published, where("published = 1")

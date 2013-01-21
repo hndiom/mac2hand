@@ -16,7 +16,8 @@
     <div class="row">
       <div class="span12">
         <div class="well info-box">
-        TODO: 留言
+          <%= render :partial => "deal_comments", :locals => {:comments => @comments} %>
+          <%= render :partial => "deal_new_comment" %>
         </div>
       </div>
       <div class="span12">
@@ -37,4 +38,11 @@
     });
   });
 </script>
+<% end -%>
+<% content_for :stylesheets do %>
+<style type="text/css">
+  textarea.text {
+    width: auto !important;
+  }
+</style>
 <% end -%>

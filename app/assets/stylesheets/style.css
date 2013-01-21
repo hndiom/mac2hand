@@ -71,6 +71,12 @@ textarea.text{
 .header .navbar .navbar-inner .brand-wrapper {
     padding-left: 15px;
 }
+
+p.QA{
+    font-size:16px;
+}
+
+/********Customize end*********/
 /* Prizing Table */
 .pricing-table {
     background: #fff;

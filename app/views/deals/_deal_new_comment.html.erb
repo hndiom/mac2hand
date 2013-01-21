@@ -1,0 +1,4 @@
+<%= simple_form_for(@deal.comments.new, :url => deal_comments_path(@deal) ) do |f| %>
+  <%= f.input :content, :label => false, :placeholder => "請輸入留言", :as => "text", :input_html => {:cols => "120", :rows => "5"} %>
+  <%= f.button :submit, "留言" ,:disable_with => "請稍候...", :class => "submit-form btn-success btn-large" %>
+<% end %>
