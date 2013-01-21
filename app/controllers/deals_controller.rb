@@ -34,6 +34,7 @@ class DealsController < ApplicationController
     if @deal.photos.present?
       set_page_image(Setting.domain+@deal.photos.first.photo.to_s)
     end
+    session[:return_to] = deal_path(@deal)
   end
 
   def edit

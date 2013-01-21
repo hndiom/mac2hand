@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class CommentsController < ApplicationController
   before_filter :find_deal
+  before_filter :login_required
 
   def new
     @comment = @deal.comments.new
