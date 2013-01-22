@@ -1,5 +1,7 @@
 <div class="project-widget well info-box">
   <%= render_deal_action_bar(current_user, deal) %>
+  <%= fb_like(Setting.domain+deal_path(@deal), :width => 400, :layout => "standard") %>
+  <hr>
   <h4><span class="label label-info">商品名稱</span> <%= render_deal_name(deal) %></h4>
   <hr>
   <h4><span class="label label-info">賣方姓名</span> <%= render_deal_seller(deal) %></h4>

@@ -76,6 +76,11 @@ p.QA{
     font-size:16px;
 }
 
+span.welcome{
+    position: relative;
+    top: -24px;
+    left: 30px;
+}
 /********Customize end*********/
 /* Prizing Table */
 .pricing-table {
