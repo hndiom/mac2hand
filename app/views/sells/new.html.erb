@@ -7,8 +7,8 @@
         <span class="label label-step">2. 上傳商品圖片</span>
       </p>
     </div>
-    <div class="span6 offset3 well" align="">
-        <%= simple_form_for(@deal, :url => deals_path ) do |f| %>
+    <div class="span6 offset3 well" >
+        <%= simple_form_for(@sell, :url => sells_path ) do |f| %>
           <%= content_tag(:div, :style => "float: left;") do %>
             <%= f.input :name, :label => "商品名稱", :placeholder => "ex. 二手 2011 MBP 出售" %>
             <%= f.input :category_id, :label => "商品類型", :collection => @categories, :prompt => "--請選擇商品類型--" %>

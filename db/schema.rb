@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121001133) do
+ActiveRecord::Schema.define(:version => 20130125081823) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,35 +20,22 @@ ActiveRecord::Schema.define(:version => 20130121001133) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "deal_id"
+    t.integer  "sell_id"
+    t.integer  "want_id"
     t.integer  "user_id"
     t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "type_of"
   end
 
-  create_table "deals", :force => true do |t|
-    t.string   "name"
-    t.string   "spec"
-    t.string   "warranty"
-    t.string   "deliver_method"
-    t.string   "accessories"
-    t.string   "original_receipt"
-    t.integer  "price"
-    t.text     "detail"
-    t.integer  "user_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.boolean  "published",        :default => false
-    t.datetime "published_at"
-    t.string   "category_id"
-    t.string   "contact_by"
+  create_table "lists", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "deals", ["category_id"], :name => "index_deals_on_type"
 
   create_table "photos", :force => true do |t|
-    t.integer  "deal_id"
+    t.integer  "sell_id"
     t.string   "photo"
     t.integer  "photo_width"
     t.integer  "photo_height"
@@ -65,6 +52,26 @@ ActiveRecord::Schema.define(:version => 20130121001133) do
     t.integer  "photo_medium_size"
     t.string   "photo_medium_content_type"
   end
+
+  create_table "sells", :force => true do |t|
+    t.string   "name"
+    t.string   "spec"
+    t.string   "warranty"
+    t.string   "deliver_method"
+    t.string   "accessories"
+    t.string   "original_receipt"
+    t.integer  "price"
+    t.text     "detail"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "contact_by"
+    t.boolean  "published",        :default => false
+    t.datetime "published_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "sells", ["category_id"], :name => "index_deals_on_type"
 
   create_table "users", :force => true do |t|
     t.string   "fb_id"
@@ -86,5 +93,23 @@ ActiveRecord::Schema.define(:version => 20130121001133) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "wants", :force => true do |t|
+    t.string   "name"
+    t.string   "spec"
+    t.string   "warranty"
+    t.string   "deliver_method"
+    t.string   "accessories"
+    t.string   "original_receipt"
+    t.integer  "price"
+    t.text     "detail"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "contact_by"
+    t.boolean  "published",        :default => false
+    t.datetime "published_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
 
 end

@@ -6,13 +6,8 @@
         <span class="label label-step label-info">編輯商品資訊</span>
       </p>
     </div>
-    <div class="span6">
-      <%= render :partial => "deal_photo_slide", :locals => {:deal => @deal} %>
-      <hr>
-      <%= link_to("管理商品圖片", new_deal_photo_path(@deal), :class => "btn btn-info btn-large") %>
-    </div>
-    <div class="span6" align="center">
-      <%= simple_form_for(@deal, :url => deal_path(@deal) ) do |f| %>
+    <div class="span6 offset3" align="center">
+      <%= simple_form_for(@want, :url => want_path(@want) ) do |f| %>
         <%= content_tag(:div, :style => "float: left;") do %>
           <%= f.input :name, :label => "商品名稱", :placeholder => "ex. 二手 2011 MBP 出售" %>
           <%= f.input :category_id, :label => "商品類型", :collection => @categories, :prompt => "--請選擇商品類型--" %>

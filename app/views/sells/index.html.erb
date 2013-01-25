@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="span12 toolbar" align="center">
-      <%= link_to("我要刊登商品", new_deal_path, :class => "btn btn-info btn-large") %>
+      <%= link_to("我要刊登二手商品", new_sell_path, :class => "btn btn-info btn-large") %>
       <hr>
     </div>
     <div class="span12" align="center">
@@ -19,20 +19,20 @@
           </tr>
         </thead>
         <tbody>
-          <% @deals.each_with_index do |deal, index| %>
+          <% @sells.each_with_index do |sell, index| %>
             <tr>
-              <td><%= render_deal_index_number(index, params[:page]) %></td>
-              <td><%= render_deal_category_name(deal) %></td>
-              <td><%= render_deal_photo_for_list(deal) %></td>
-              <td class="text-center"><%= link_to(deal.name, deal_path(deal), :class => "deal-title") %></td>
-              <td><%= render_deal_price(deal) %></td>
-              <td><%= render_deal_user_name(deal) %></td>
-              <td><%= render_deal_published_at(deal) %></td>
+              <td><%= render_index_number(index, params[:page]) %></td>
+              <td><%= render_category_name(sell) %></td>
+              <td><%= render_photo_for_list(sell) %></td>
+              <td class="text-center"><%= link_to(sell.name, sell_path(sell), :class => "sell-title") %></td>
+              <td><%= render_price(sell) %></td>
+              <td><%= render_user_name(sell) %></td>
+              <td><%= render_published_at(sell) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <%= will_paginate(@deals) %>
+      <%= will_paginate(@sells) %>
     </div>
   </div>
 </div>

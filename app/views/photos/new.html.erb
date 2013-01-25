@@ -15,7 +15,7 @@
   
   <div class="row">
     <div class="span12" align="center">
-      <%= form_for @object_new, :url => deal_photos_path(@deal), :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+      <%= form_for @object_new, :url => sell_photos_path(@sell), :html => { :multipart => true, :id => "fileupload"  } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
       <div class="row fileupload-buttonbar">
         <div class="span5">
@@ -23,7 +23,7 @@
           <span class="btn btn-success fileinput-button">
             <i class="icon-plus icon-white"></i>
             <span>增加圖片</span>
-            <%= f.file_field(:photo, :multiple => true, :name => "deal_photos[photo]") %>
+            <%= f.file_field(:photo, :multiple => true, :name => "sell_photos[photo]") %>
           </span>
           <button type="submit" class="btn btn-primary start">
             <i class="icon-upload icon-white"></i>
@@ -60,7 +60,7 @@
   
   <div class="row">
     <div class="span12" align="center">
-      <%= link_to("完成", edit_deal_path(@deal), :class => "btn btn-success") %>
+      <%= link_to("完成", edit_sell_path(@sell), :class => "btn btn-success") %>
     </div>
   </div>
 </div>

@@ -1,13 +1,10 @@
 # -*- encoding : utf-8 -*-
-class Deal < ActiveRecord::Base
+class Want < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :user
   belongs_to :category
 
-  has_many :photos, :dependent => :destroy
   has_many :comments, :dependent => :destroy
-
-  accepts_nested_attributes_for :photos
 
   scope :is_published, where("published = 1")
   scope :recent, order("published_at DESC")

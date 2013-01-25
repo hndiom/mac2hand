@@ -2,11 +2,8 @@
 <section class="portfolio">
   <div class="container">
     <div class="row">
-      <div class="span7">
-        <%= render :partial => "deal_photo_slide", :locals => {:deal => @deal} %>
-      </div>
       <div class="span5">
-        <%= render :partial => "deal_info_box", :locals => {:deal => @deal} %>
+        <%= render :partial => "common/info_box", :locals => {:object => @want, :type_of => "want"} %>
       </div>
     </div>    
   </div>
@@ -16,8 +13,8 @@
     <div class="row">
       <div class="span12">
         <div class="well info-box">
-          <%= render :partial => "deal_comments", :locals => {:comments => @comments} %>
-          <%= render :partial => "deal_new_comment" %>
+          <%= render :partial => "common/comments", :locals => {:comments => @comments} %>
+          <%= render :partial => "common/new_comment", :locals => {:object => @want, :path => "/wants/#{@want.id}/comments", :type_of => "want"} %>
         </div>
       </div>
       <div class="span12">
@@ -28,17 +25,6 @@
     </div>
   </div>
 </section>
-<% content_for :javascripts do %>
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('#myCarousel').oneCarousel({
-      easeIn: 'rotateIn',
-      interval: 5000,
-      pause: 'hover'
-    });
-  });
-</script>
-<% end -%>
 <% content_for :stylesheets do %>
 <style type="text/css">
   textarea.text {

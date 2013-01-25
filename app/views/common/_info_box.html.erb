@@ -1,0 +1,25 @@
+<div class="project-widget well info-box">
+  <%= render_action_bar(current_user, type_of, object) %>
+  <%= fb_like("#{request.protocol}#{request.host_with_port}#{request.fullpath}", :width => 400, :layout => "standard") %>
+  <hr>
+  <h4><span class="label label-info">商品名稱</span> <%= render_name(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">賣方姓名</span> <%= render_seller(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">商品規格</span> <%= render_spec(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">保固狀態</span> <%= render_warranty(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">相關配件</span> <%= render_accessories(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">原始發票</span> <%= render_original_receipt(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">欲售價格</span> <%= render_price(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">聯絡方式</span> <%= render_contact_by(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">交易方式</span> <%= render_deliver_method(object) %></h4>
+  <hr>
+  <h4><span class="label label-info">詳細說明</span></h4>
+  <%= render_detail(object) %>
+</div>

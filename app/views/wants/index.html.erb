@@ -1,0 +1,36 @@
+<%= render :partial => "common/page_header" %>
+<div class="container">
+  <div class="row">
+    <div class="span12 toolbar" align="center">
+      <%= link_to("我要找二手商品", new_want_path, :class => "btn btn-info btn-large") %>
+      <hr>
+    </div>
+    <div class="span12" align="center">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="50px">No.</th>
+            <th width="80px">類別</th>
+            <th class="text-center">名稱</th>
+            <th width="100px">售價</th>
+            <th width="100px">賣方</th>
+            <th width="100px">發佈日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @wants.each_with_index do |want, index| %>
+            <tr>
+              <td><%= render_index_number(index, params[:page]) %></td>
+              <td><%= render_category_name(want) %></td>
+              <td class="text-center"><%= link_to(want.name, want_path(want), :class => "deal-title") %></td>
+              <td><%= render_price(want) %></td>
+              <td><%= render_user_name(want) %></td>
+              <td><%= render_published_at(want) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate(@wants) %>
+    </div>
+  </div>
+</div>

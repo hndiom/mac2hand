@@ -10,10 +10,11 @@ Mac2hand::Application.routes.draw do
   #root :to => "deals#index"
   
   resources :users do
-    resources :deals
+    resources :sells
+    resources :wants
   end
 
-  resources :deals do
+  resources :sells do
     resources :photos
     resources :comments
     member do
@@ -21,6 +22,19 @@ Mac2hand::Application.routes.draw do
       get :cancel_publish
     end
     
+  end
+
+  resources :wants do
+    resources :comments
+    member do
+      get :publish
+      get :cancel_publish
+    end
+  end
+
+  resources :lists do
+    resources :sells
+    resources :wants
   end
 
   resources :photos

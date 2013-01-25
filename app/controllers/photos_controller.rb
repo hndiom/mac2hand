@@ -1,20 +1,20 @@
 # -*- encoding : utf-8 -*-
 class PhotosController < ApplicationController
-  before_filter :find_deal
+  before_filter :find_sell
 
   def new 
-    @object_new = @deal.photos.build    # needed for form_for --> gets the path
+    @object_new = @sell.photos.build    # needed for form_for --> gets the path
   end
 
   def index
-    @photos = @deal.photos
+    @photos = @sell.photos
 
     render :json => @photos.collect { |p| p.to_jq_upload }.to_json
   end
 
   def create
-    @photo = @deal.photos.build
-    @photo.photo = params[:deal_photos][:photo]
+    @photo = @sell.photos.build
+    @photo.photo = params[:sell_photos][:photo]
     if @photo.save
       respond_to do |format|
         format.html {                                         #(html response is for browsers using iframe sollution)
@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
   end
   protected
 
-  def find_deal
-    @deal = Deal.find(params[:deal_id])
+  def find_sell
+    @sell = Sell.find(params[:sell_id])
   end
 end

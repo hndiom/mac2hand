@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :cellphone
   # attr_accessible :title, :body
   validates_presence_of :name, :email, :cellphone
-  has_many :deals
+  has_many :sells
+  has_many :wants
 
   def has_cellphone?
     if self.cellphone.present?

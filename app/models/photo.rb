@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   # attr_accessible :title, :body
   include Rails.application.routes.url_helpers
 
-  belongs_to :deal
+  belongs_to :sell
   mount_uploader :photo, PhotoUploader
 
   def to_jq_upload
@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
     "size" => photo.size,
     "url" => photo.url,
     "thumbnail_url" => photo.tiny.url,
-    "delete_url" => deal_photo_path(deal,id),
+    "delete_url" => sell_photo_path(sell,id),
     "delete_type" => "DELETE",
   }
   end
