@@ -39,8 +39,13 @@ class DealsController < ApplicationController
     @deal = Deal.find(params[:id])
     @comments = @deal.comments
 
-    set_page_title("#{@deal.name}")
-    set_page_description("只要 NTD #{@deal.price}")
+    if @deal.type_of == "sell"
+      set_page_title("我正在出售 #{@deal.name}")
+      set_page_description("只要 NTD #{@deal.price}")
+    elsif @deal.type_of == "want"
+      set_page_title("我想要買 #{@deal.name}")
+      set_page_description("詳情請點進來看喔!")
+    end
     if @deal.photos.present?
       set_page_image(Setting.domain+@deal.photos.first.photo.to_s)
     end
