@@ -1,0 +1,48 @@
+<%= render :partial => "common/page_header" %>
+<section class="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="span7">
+        <%= render :partial => "common/photo_slide", :locals => {:sell => @sell} %>
+      </div>
+      <div class="span5">
+        <%= render :partial => "common/info_box", :locals => {:object => @sell, :type_of => "sell"} %>
+      </div>
+    </div>    
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="well info-box">
+          <%= render :partial => "common/comments", :locals => {:comments => @comments} %>
+          <%= render :partial => "common/new_comment", :locals => {:object => @sell, :path => "/sells/#{@sell.id}/comments", :type_of => "sell"} %>
+        </div>
+      </div>
+      <div class="span12">
+        <div class="well info-box">
+        TODO: 您可能也會喜歡...
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% content_for :javascripts do %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#myCarousel').oneCarousel({
+      easeIn: 'rotateIn',
+      interval: 5000,
+      pause: 'hover'
+    });
+  });
+</script>
+<% end -%>
+<% content_for :stylesheets do %>
+<style type="text/css">
+  textarea.text {
+    width: auto !important;
+  }
+</style>
+<% end -%>
