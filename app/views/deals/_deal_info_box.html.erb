@@ -1,25 +1,84 @@
 <div class="project-widget well info-box">
-  <%= render_deal_action_bar(current_user, deal) %>
   <%= fb_like(Setting.domain+deal_path(@deal), :width => 400, :layout => "standard") %>
+  <br />
+  <%= render_deal_action_bar(current_user, deal) %>
+  <br>
   <hr>
-  <h4><span class="label label-info">商品名稱</span> <%= render_deal_name(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">賣方姓名</span> <%= render_deal_seller(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">商品規格</span> <%= render_deal_spec(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">保固狀態</span> <%= render_deal_warranty(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">相關配件</span> <%= render_deal_accessories(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">原始發票</span> <%= render_deal_original_receipt(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">欲售價格</span> <%= render_deal_price(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">聯絡方式</span> <%= render_deal_contact_by(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">交易方式</span> <%= render_deal_deliver_method(deal) %></h4>
-  <hr>
-  <h4><span class="label label-info">詳細說明</span></h4>
-  <%= render_deal_detail(deal) %>
+  <% if deal.type_of == "sell" %>
+    <table class="table table-striped">
+      <tr>
+        <td><span class="label label-info">商品名稱</span></td>
+        <td><%= render_deal_name(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">售價</span></td>
+        <td><%= render_deal_price(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">賣方</span></td>
+        <td><%= render_deal_seller(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">商品規格</span></td>
+        <td><%= render_deal_spec(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">保固狀態</span></td>
+        <td><%= render_deal_warranty(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">相關配件</span></td>
+        <td><%= render_deal_accessories(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">原始發票</span></td>
+        <td><%= render_deal_original_receipt(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">聯絡方式</span></td>
+        <td><%= render_deal_contact_by(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">交易方式</span></td>
+        <td><%= render_deal_deliver_method(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">詳細說明</span></td>
+        <td><%= render_deal_detail(deal) %></td>
+      </tr>
+    </table>
+  <% elsif deal.type_of == "want" %>
+    <table class="table table-striped">
+      <tr>
+        <td><span class="label label-info">需求</span></td>
+        <td><%= render_deal_name(deal) %></td>
+        <td><span class="label label-info">相關配件</span></td>
+        <td><%= render_deal_accessories(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">預算</span></td>
+        <td><%= render_deal_price(deal) %></td>
+        <td><span class="label label-info">原始發票</span></td>
+        <td><%= render_deal_original_receipt(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">買方</span></td>
+        <td><%= render_deal_seller(deal) %></td>
+        <td><span class="label label-info">聯絡方式</span></td>
+        <td><%= render_deal_contact_by(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">規格</span></td>
+        <td><%= render_deal_spec(deal) %></td>
+        <td><span class="label label-info">交易方式</span></td>
+        <td><%= render_deal_deliver_method(deal) %></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">保固狀態</span></td>
+        <td><%= render_deal_warranty(deal) %></td>
+        <td><span class="label label-info">詳細說明</span></td>
+        <td><%= render_deal_detail(deal) %></td>
+      </tr>
+    </table>
+  <% end -%>
 </div>

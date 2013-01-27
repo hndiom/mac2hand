@@ -2,15 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="span12 toolbar" align="center">
-      <%= link_to("我要刊登商品", new_deal_path, :class => "btn btn-info btn-large") %>
+      <%= link_to("我要賣二手", sell_deals_path, :class => "btn btn-info btn-large") %>
+      <%= link_to("我想買二手", want_deals_path, :class => "btn btn-info btn-large") %>
       <%= link_to("編輯個人資料", account_profile_path, :class => "btn btn-warning btn-large") %>
       <hr>
     </div>
     <div class="span12" align="center">
+      <span class="label label-info pull-left">我的交易</span>
+      <hr>
       <table class="table table-bordered">
         <thead>
           <tr>
             <th width="50px">No.</th>
+            <th width="75px">交易類型</th>
             <th width="80px">類別</th>
             <th width="50px"></th>
             <th class="text-center">名稱</th>
@@ -23,6 +27,7 @@
           <% @deals.each_with_index do |deal,index| %>
             <tr>
               <td><%= render_deal_index_number(index, params[:page]) %></td>
+              <td><%= render_deal_type_of(deal) %></td>
               <td><%= render_deal_category_name(deal) %></td>
               <td><%= render_deal_photo_for_list(deal) %></td>
               <td class="text-center"><%= link_to(deal.name, deal_path(deal), :class => "deal-title") %></td>

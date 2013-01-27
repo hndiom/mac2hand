@@ -78,9 +78,9 @@ module DealsHelper
   end
 
   def render_deal_detail(deal)
-    content_tag(:div, :class => "detail") do
+    #content_tag(:div, :class => "detail") do
       deal.detail.html_safe
-    end
+    #end
   end
 
   def render_deal_deliver_method(deal)
@@ -114,13 +114,15 @@ module DealsHelper
   end
 
   def render_deal_action_bar(user, deal)
-    if user == deal.user
-      ibutton("修改", edit_deal_path(deal), :class => "btn-options", :iclass => "icon icon-edit")+" "+
-      ibutton("刪除", deal_path(deal),:method => "delete", :class => "btn-options", :iclass => "icon icon-trash")+" "+
-      if deal.is_published?
-        ibutton("取消", cancel_publish_deal_path(deal), :class => "btn-options", :iclass => "icon icon-flag")
-      else
-        ibutton("發佈", publish_deal_path(deal), :class => "btn-options", :iclass => "icon icon-flag")
+    content_tag(:div, :class => "btn-group pull-right") do
+      if user == deal.user
+        ibutton("修改", edit_deal_path(deal), :class => "btn btn-options", :iclass => "icon icon-edit")+" "+
+        ibutton("刪除", deal_path(deal),:method => "delete", :class => "btn btn-options", :iclass => "icon icon-trash")+" "+
+        if deal.is_published?
+          ibutton("取消", cancel_publish_deal_path(deal), :class => "btn btn-options btn-danger", :iclass => "icon icon-flag")
+        else
+          ibutton("發佈", publish_deal_path(deal), :class => "btn btn-options btn-info", :iclass => "icon icon-flag")
+        end
       end
     end
   end

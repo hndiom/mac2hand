@@ -2,12 +2,18 @@
 <section class="portfolio">
   <div class="container">
     <div class="row">
-      <div class="span7">
-        <%= render :partial => "deal_photo_slide", :locals => {:deal => @deal} %>
-      </div>
-      <div class="span5">
-        <%= render :partial => "deal_info_box", :locals => {:deal => @deal} %>
-      </div>
+      <% if @deal.type_of == "sell" %>
+        <div class="span7">
+          <%= render :partial => "deal_photo_slide", :locals => {:deal => @deal} %>
+        </div>
+        <div class="span5">
+          <%= render :partial => "deal_info_box", :locals => {:deal => @deal} %>
+        </div>
+      <% elsif @deal.type_of == "want" %>
+        <div class="span12">
+          <%= render :partial => "deal_info_box", :locals => {:deal => @deal} %>
+        </div>  
+      <% end -%>
     </div>    
   </div>
 </section>
