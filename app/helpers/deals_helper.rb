@@ -41,7 +41,11 @@ module DealsHelper
     if deal.photos.present?
       image_tag(deal.photos.first.photo.tiny)
     else
-      image_tag("/images/50x50.gif")
+      if deal.type_of == 'sell'
+        placeholdit_image_tag("50x50", text: "Sell")
+      elsif deal.type_of == 'want'
+        placeholdit_image_tag("50x50", text: "Want")
+      end
     end
   end
 
@@ -126,6 +130,14 @@ module DealsHelper
       ((page.to_i-1)*5)+index+1
     else
       index+1
+    end
+  end
+
+  def render_deal_type_of(deal)
+    if deal.type_of == "sell"
+      "出售"
+    elsif deal.type_of == "want"
+      "購買"
     end
   end
 end

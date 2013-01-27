@@ -21,14 +21,19 @@
 <section class="services">
   <div class="container">
     <div class="row">
-      <div class="span6">
+      <div class="span4">
         <div class="well well-small">
-          <h3><i class="icon-edit"></i> <%= link_to("登錄二手商品!", new_deal_path) %></h3>
+          <h3><i class="icon-edit"></i> <%= link_to("我要賣二手", sell_deals_path) %></h3>
         </div>
       </div>
-      <div class="span6">
+      <div class="span4">
         <div class="well well-small">
-          <h3><i class="icon-list"></i> <%= link_to("看目前的商品!", deals_path) %></h3>
+          <h3><i class="icon-list-alt"></i> <%= link_to("看目前所有交易", deals_path) %></h3>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="well well-small">
+          <h3><i class="icon-search"></i> <%= link_to("我想買二手", want_deals_path) %></h3>
         </div>
       </div>
       <!-- <div class="span4">

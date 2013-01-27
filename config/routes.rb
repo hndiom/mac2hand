@@ -21,6 +21,11 @@ Mac2hand::Application.routes.draw do
       get :cancel_publish
     end
     
+    collection do
+      get :sell
+      get :want
+    end
+    
   end
 
   resources :photos

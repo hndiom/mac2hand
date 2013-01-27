@@ -6,10 +6,16 @@ class DealsController < ApplicationController
     @deals = Deal.is_published.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
-  def new
+  def want
     @deal = Deal.new
     @user = current_user
     @categories = Category.all
+  end
+
+  def sell
+    @deal = Deal.new
+    @user = current_user
+    @categories = Category.all    
   end
 
   def create
@@ -19,7 +25,11 @@ class DealsController < ApplicationController
     @deal.user_id = current_user.id
     
     if @deal.save
-      redirect_to new_deal_photo_path(@deal)
+      if @deal.type_of == "sell"
+        redirect_to new_deal_photo_path(@deal)
+      elsif @deal.type_of == "want"
+        redirect_to deal_path(@deal)
+      end
     else
       render :new
     end
