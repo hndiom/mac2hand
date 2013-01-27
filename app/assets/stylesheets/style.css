@@ -35,7 +35,7 @@ span.label-step{
 }
 
 textarea.text{
-    width: 250px;
+    /*width: 250px;*/
 }
 
 .btn.btn-facebook {
@@ -1336,7 +1336,9 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     }
 
     .header .navbar .navbar-inner .nav {
-        display: none;
+        /*display: none;*/
+        margin: 0 auto;
+        width: 80%;
     }
 
     .header .navbar .navbar-inner select {
