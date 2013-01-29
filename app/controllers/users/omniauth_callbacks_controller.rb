@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                 flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入."
                 sign_in_and_redirect @user, :event => :authentication, :notice => "登陆成功。"
               else
-                flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入, 請填寫您的聯絡電話方便買/賣方與您聯絡"
+                flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入, 請確認您的聯絡方式無誤"
                 sign_in @user
                 redirect_to "/account/profile"
               end

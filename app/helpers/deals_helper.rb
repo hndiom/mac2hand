@@ -142,4 +142,13 @@ module DealsHelper
       "購買"
     end
   end
+
+  def render_deal_contact_method(user)
+    if user.has_cellphone?
+      s = [user.email, user.cellphone, "其它"]
+    else
+      s = [user.email, "其它"]
+    end 
+    return s
+  end
 end
