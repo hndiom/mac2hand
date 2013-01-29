@@ -11,14 +11,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             @user = User.find_or_create_for_#{provider}(env["omniauth.auth"])
 
             if @user.persisted?
-              if @user.has_cellphone?
+              # if @user.has_cellphone?
                 flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入."
-                sign_in_and_redirect @user, :event => :authentication, :notice => "登陆成功。"
-              else
-                flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入, 請確認您的聯絡方式無誤"
-                sign_in @user
-                redirect_to "/account/profile"
-              end
+                sign_in_and_redirect @user, :event => :authentication, :notice => "登入成功."
+              # else
+              #   flash[:notice] = "成功使用 #{provider.to_s.titleize} 登入, 請確認您的聯絡方式無誤"
+              #   sign_in @user
+              #   redirect_to "/account/profile"
+              # end
             else
               redirect_to new_user_registration_url
             end

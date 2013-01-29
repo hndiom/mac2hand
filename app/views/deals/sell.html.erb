@@ -8,27 +8,27 @@
       </p>
     </div>
     <div class="row">
-    <div class="span6 offset3 well" >
-      <div class="row">
-        <%= simple_form_for(@deal, :url => deals_path ) do |f| %>
-          <%= content_tag(:div, :class => "span3") do %>
-            <%= f.input :name, :label => "商品名稱", :placeholder => "ex. 二手 2011 MBP 出售" %>
-            <%= f.input :category_id, :label => "商品類型", :collection => @categories, :prompt => "--請選擇商品類型--" %>
-            <%= f.input :price, :label => "欲售價格 (台幣)", :placeholder => "ex. 19900" %>
-            <%= f.input :spec, :label => "商品規格", :placeholder => "ex. i7 8G RAM" %>
-            <%= f.input :warranty, :label => "保固狀態",:prompt => "--請選擇保固狀態--", :collection => ["公司保固內", "已過保", "保固狀態不明"] %>
+      <div class="span6 offset3 well" >
+        <div class="row">
+          <%= simple_form_for(@deal, :url => deals_path ) do |f| %>
+            <%= content_tag(:div, :class => "span3") do %>
+              <%= f.input :name, :label => "商品名稱", :placeholder => "ex. 二手 2011 MBP 出售" %>
+              <%= f.input :category_id, :label => "商品類型", :collection => @categories, :prompt => "--請選擇商品類型--" %>
+              <%= f.input :price, :label => "欲售價格 (台幣)", :placeholder => "ex. 19900" %>
+              <%= f.input :spec, :label => "商品規格", :placeholder => "ex. i7 8G RAM" %>
+              <%= f.input :warranty, :label => "保固狀態",:prompt => "--請選擇保固狀態--", :collection => ["公司保固內", "已過保", "保固狀態不明"] %>
+            <% end %>
+            <%= content_tag(:div, :class => "span3") do %>
+              <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
+              <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>
+              <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => render_deal_contact_method(@user) %>
+              <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:cols => "35", :rows => "6"} %>
+              <%= f.hidden_field :type_of, :value => "sell" %>
+              <%= f.button :submit, "存檔, 下一步" ,:disable_with => "請稍候...", :class => "submit-form btn-success btn-large" %>
+            <% end %>
           <% end %>
-          <%= content_tag(:div, :class => "span3") do %>
-            <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
-            <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>
-            <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => render_deal_contact_method(@user) %>
-            <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:cols => "35", :rows => "6"} %>
-            <%= f.hidden_field :type_of, :value => "sell" %>
-            <%= f.button :submit, "存檔, 下一步" ,:disable_with => "請稍候...", :class => "submit-form btn-success btn-large" %>
-          <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
