@@ -9,6 +9,9 @@ class Deal < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
+  geocoded_by :address
+  after_validation :geocode 
+
   scope :is_published, where("published = 1")
   scope :recent, order("published_at DESC")
 

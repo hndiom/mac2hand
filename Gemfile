@@ -20,6 +20,7 @@ group :assets do
   gem "jquery-ui-rails", "= 2.0.2"
 end
 
+gem "geocoder"
 gem "placeholdit"
 gem "jquery-rails"
 gem "devise"
@@ -53,4 +54,5 @@ group :development do
   gem "cape"
   gem "magic_encoding"
   gem "annotate"
+  gem "certified"
 end

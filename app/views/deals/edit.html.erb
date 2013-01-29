@@ -25,6 +25,7 @@
           <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>
           <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => render_deal_contact_method(@user) %>
           <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:cols => "40", :rows => "10"} %>
+          <%= f.input :address, :label => "#{@deal.latitude},#{@deal.longitude}", :placeholder => "請輸入地址" %>
           <%= f.button :submit, "存檔" ,:disable_with => "請稍候...", :class => "submit-form btn-success btn-large" %>
         <% end %>
       <% end %>
