@@ -1,0 +1,27 @@
+defaults: &defaults
+  app_name: "123"
+  domain: ""    
+  facebook_app_id: "xxx"
+  facebook_secret: "xxxx"
+  admin_emails: 
+    - ""
+  google_analytics_key: ""
+  default_logo_url: "/logo.png"
+  email_sender: ""
+  description: ""
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  app_name: "xxx"
+  domain: ""    
+  facebook_app_id: "xx"
+  facebook_secret: "xxx"
+  admin_emails: 
+    - ""
+  google_analytics_key: ""
+  default_logo_url: "/logo.png"
+  email_sender: ""

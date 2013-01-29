@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(:version => 20130127040623) do
   create_table "deals", :force => true do |t|
     t.string   "name"
     t.string   "spec"
-    t.string   "warranty"
     t.string   "deliver_method"
-    t.string   "accessories"
-    t.string   "original_receipt"
     t.integer  "price"
     t.text     "detail"
     t.integer  "user_id"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "warranty"
+    t.string   "accessories"
+    t.string   "original_receipt"
     t.boolean  "published",        :default => false
     t.datetime "published_at"
     t.string   "category_id"
@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(:version => 20130127040623) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "fb_id"
-    t.string   "name"
     t.string   "email",                                :default => "", :null => false
     t.string   "encrypted_password",                   :default => "", :null => false
     t.string   "reset_password_token"
@@ -82,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20130127040623) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
+    t.string   "fb_id"
+    t.string   "name"
     t.string   "cellphone",              :limit => 10
   end
 
