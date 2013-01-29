@@ -1,5 +1,9 @@
 <%= render :partial => "common/page_header" %>
 <div class="container">
+      <div class="span12" align="center">
+
+  <%= gmaps4rails(@json) %>
+</div>
   <div class="row">
     <div class="span12 toolbar" align="center">
       <%= link_to("我要賣二手", sell_deals_path, :class => "btn btn-info btn-large") %>
@@ -39,3 +43,6 @@
     </div>
   </div>
 </div>
+<%= content_for :javascripts  do %>
+  <%= yield :scripts %>
+<% end %>

@@ -9,7 +9,11 @@ class Deal < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
-  scope :is_published, where("published = 1")
+  acts_as_gmappable :process_geocoding => false
+  geocoded_by :address
+  after_validation :geocode 
+
+  scope :is_published, where("published = ?",true)
   scope :recent, order("published_at DESC")
 
   validates_presence_of :name, :spec, :deliver_method, :price, :contact_by
@@ -31,5 +35,8 @@ class Deal < ActiveRecord::Base
     else
       false
     end
+  end
+  def gmaps4rails_title
+    "#{self.name}"
   end
 end
