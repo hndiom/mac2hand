@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129152419) do
+ActiveRecord::Schema.define(:version => 20130129161501) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130129152419) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.boolean  "gmaps"
   end
 
   add_index "deals", ["category_id"], :name => "index_deals_on_type"

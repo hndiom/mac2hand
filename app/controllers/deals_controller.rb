@@ -4,6 +4,7 @@ class DealsController < ApplicationController
 
   def index
     @deals = Deal.is_published.recent.paginate(:page => params[:page], :per_page => 5)
+    @json = @deals.to_gmaps4rails
   end
 
   def want

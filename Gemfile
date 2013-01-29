@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem "geocoder"
+gem 'gmaps4rails'
 gem "placeholdit"
 gem "jquery-rails"
 gem "devise"

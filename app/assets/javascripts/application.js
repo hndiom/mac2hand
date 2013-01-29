@@ -20,7 +20,8 @@
 //= require jquery.fitvids
 //= require jquery.isotope.min
 //= require jquery-fileupload
-
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 function dismissAlertAfterTime(timespan) {
   $('.alert').each(function(i, e) {
     if($(e).find('.close').length > 0) setTimeout(function() {
