@@ -20,7 +20,6 @@
 //= require jquery.fitvids
 //= require jquery.isotope.min
 //= require jquery-fileupload
-//= require taiwan_city_dists_helper
 
 function dismissAlertAfterTime(timespan) {
   $('.alert').each(function(i, e) {
@@ -36,3 +35,21 @@ function insertAutoDismissAlert(notice_message) {
 }
 
 dismissAlertAfterTime(3000);
+
+$(function() {
+  var dists;
+  dists = $('select[id*="_dist_id"]').html();
+  return $('select[id*="_city_id"]').change(function() {
+    var city, escaped_city, options;
+    city = $('select[id*="_city_id"] :selected').text();
+    escaped_city = city.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+    if (dists.indexOf("optgroup") != -1){
+      options = $(dists).filter("optgroup[label=" + escaped_city + "]").html();
+      if (options) {
+        return $('select[id*="_dist_id"]').html(options);
+      } else {
+        return $('select[id*="_dist_id"]').empty();
+      }
+    }
+  });
+});
