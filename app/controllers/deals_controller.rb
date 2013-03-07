@@ -15,7 +15,9 @@ class DealsController < ApplicationController
   def sell
     @deal = Deal.new
     @user = current_user
-    @categories = Category.all    
+    @cities = City.all
+    @dists = Dist.all
+    @categories = Category.all
   end
 
   def create
@@ -23,7 +25,7 @@ class DealsController < ApplicationController
     @categories = Category.all
     @deal = Deal.new(params[:deal])
     @deal.user_id = current_user.id
-    
+
     if @deal.save
       if @deal.type_of == "sell"
         redirect_to new_deal_photo_path(@deal)

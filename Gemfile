@@ -41,6 +41,7 @@ gem "rmagick"
 gem "carrierwave"
 gem "carrierwave-meta"
 gem "jquery-fileupload-rails"
+gem "taiwan_city_dists_helper"
 
 group :assets do
   gem "compass-rails"

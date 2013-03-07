@@ -20,6 +20,7 @@
 //= require jquery.fitvids
 //= require jquery.isotope.min
 //= require jquery-fileupload
+//= require taiwan_city_dists_helper
 
 function dismissAlertAfterTime(timespan) {
   $('.alert').each(function(i, e) {
