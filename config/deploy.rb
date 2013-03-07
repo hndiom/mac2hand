@@ -100,9 +100,3 @@ after :deploy, "deploy:cleanup"
 
 #after "deploy:restart", "sphinx:rebuild"
 #after "deploy:restart", "sphinx:restart"
-require 'cape'
-
-Cape do
-  # Create Capistrano recipes for all Rake tasks.
-  mirror_rake_tasks
-end
