@@ -186,7 +186,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    taiwan_city_dists_helper (0.8)
+    taiwan_city_dists_helper (0.83)
       nokogiri
     thor (0.17.0)
     tilt (1.3.3)

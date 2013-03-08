@@ -20,8 +20,8 @@
             <% end %>
             <%= content_tag(:div, :class => "span3") do %>
               <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
-              <%= render_city_select(f, @cities, false) %>
-              <%= render_grouped_dist_select(f, @cities, false) %>
+              <%= render_city_select(f, @cities, true) %>
+              <%= render_grouped_dist_select(f, @cities, true) %>
               <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>
               <%= f.input :contact_by, :label => "聯絡方式",:prompt => "--請選擇聯絡方式--", :collection => render_deal_contact_method(@user) %>
               <%= f.input :detail, :as => "text", :label => "詳細說明", :input_html => {:cols => "35", :rows => "6"} %>
