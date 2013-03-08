@@ -58,6 +58,8 @@ class DealsController < ApplicationController
     @user = current_user
     @categories = Category.all
     @deal = Deal.find(params[:id])
+    @cities = City.all
+    @dists = Dist.all
     unless @deal.user_id == current_user.id
       redirect_to root_path
     end

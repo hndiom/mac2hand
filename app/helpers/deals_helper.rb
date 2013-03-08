@@ -148,7 +148,20 @@ module DealsHelper
       s = [user.email, user.cellphone, "其它"]
     else
       s = [user.email, "其它"]
-    end 
+    end
+    return s
+  end
+
+  def render_deal_location(deal)
+    s = ""
+    if deal.city.present?
+      s += deal.city.name
+    end
+
+    if deal.dist.present?
+      s += deal.dist.name
+    end
+
     return s
   end
 end

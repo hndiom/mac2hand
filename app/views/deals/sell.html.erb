@@ -20,6 +20,7 @@
             <% end %>
             <%= content_tag(:div, :class => "span3") do %>
               <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
+              <%= f.label "交易地點" %>
               <%= render_city_select(f, @cities, true) %>
               <%= render_grouped_dist_select(f, @cities, true) %>
               <%= f.input :original_receipt, :label => "原始發票", :collection =>["無發票", "附發票"], :prompt => "--請選擇是否附發票--"%>

@@ -4,6 +4,7 @@ class Deal < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :city
+  belongs_to :dist
 
   has_many :photos, :dependent => :destroy
   has_many :comments, :dependent => :destroy
