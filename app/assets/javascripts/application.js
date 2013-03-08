@@ -18,7 +18,6 @@
 //= require jquery.onecarousel.min
 //= require jquery.prettyPhoto
 //= require jquery.fitvids
-//= require jquery.isotope.min
 //= require jquery-fileupload
 
 function dismissAlertAfterTime(timespan) {
