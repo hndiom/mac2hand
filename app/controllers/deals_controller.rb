@@ -73,6 +73,7 @@ class DealsController < ApplicationController
   end
 
   def update
+    @user = current_user
     @cities = City.all
     @dists = Dist.all
     @deal = Deal.find(params[:id])
