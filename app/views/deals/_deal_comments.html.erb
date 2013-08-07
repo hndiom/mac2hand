@@ -7,11 +7,7 @@
   <tbody>
   <% if comments.present? %>
     <% comments.each do |comment| %>
-    <tr>
-      <td><%= render_comment_avatar_name(comment) %></td>
-      <td><%= render_comment_content(comment) %></td>
-      <td><%= render_comment_datetime(comment) %></td>
-    </tr>
+    <%= render_comment_hidden_or_not(comment) %>
     <% end -%>
   <% else %>
     <tr><td colspan="3">目前沒有關於此商品的留言</td></tr>
