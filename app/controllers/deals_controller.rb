@@ -21,6 +21,8 @@ class DealsController < ApplicationController
   end
 
   def create
+    @cities = City.all
+    @dists = Dist.all
     @user = current_user
     @categories = Category.all
     @deal = Deal.new(params[:deal])
@@ -33,7 +35,12 @@ class DealsController < ApplicationController
         redirect_to deal_path(@deal)
       end
     else
-      render :new
+      case params[:deal][:type_of]
+      when "sell"
+        render :sell
+      when "want"
+        render :want
+      end 
     end
   end
 
