@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class DealsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
+  before_filter :get_deal_variables, :only => [:want, :sell, :create, :edit]
+  before_filter :find_deal, :only => [:show, :edit, :update, :publish, :cancel_publish, :destroy]
 
   def index
     @deals = Deal.is_published.recent.paginate(:page => params[:page], :per_page => 5)
@@ -8,23 +10,13 @@ class DealsController < ApplicationController
 
   def want
     @deal = Deal.new
-    @user = current_user
-    @categories = Category.all
   end
 
   def sell
     @deal = Deal.new
-    @user = current_user
-    @cities = City.all
-    @dists = Dist.all
-    @categories = Category.all
   end
 
   def create
-    @cities = City.all
-    @dists = Dist.all
-    @user = current_user
-    @categories = Category.all
     @deal = Deal.new(params[:deal])
     @deal.user_id = current_user.id
 
@@ -45,7 +37,6 @@ class DealsController < ApplicationController
   end
 
   def show
-    @deal = Deal.find(params[:id])
     @comments = @deal.comments
 
     if @deal.type_of == "sell"
@@ -62,11 +53,6 @@ class DealsController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @categories = Category.all
-    @deal = Deal.find(params[:id])
-    @cities = City.all
-    @dists = Dist.all
     unless @deal.user_id == current_user.id
       redirect_to root_path
     end
@@ -76,8 +62,7 @@ class DealsController < ApplicationController
     @user = current_user
     @cities = City.all
     @dists = Dist.all
-    @deal = Deal.find(params[:id])
-
+    
     if @deal.update_attributes(params[:deal])
       redirect_to deal_path(@deal), :notice => "修改成功"
     else
@@ -86,7 +71,6 @@ class DealsController < ApplicationController
   end
 
   def publish
-    @deal = Deal.find(params[:id])
     unless @deal.user_id == current_user.id
       redirect_to root_path
     end
@@ -95,7 +79,6 @@ class DealsController < ApplicationController
   end
 
   def cancel_publish
-    @deal = Deal.find(params[:id])
     unless @deal.user_id == current_user.id
       redirect_to root_path
     end
@@ -104,8 +87,20 @@ class DealsController < ApplicationController
   end
 
   def destroy
-    @deal = Deal.find(params[:id])
     @deal.destroy
     redirect_to :back, :notice => "已刪除 #{@deal.name}"
+  end
+
+  protected
+
+  def get_deal_variables
+    @user = current_user
+    @cities = City.all
+    @dists = Dist.all
+    @categories = Category.all
+  end
+
+  def find_deal
+    @deal = Deal.find(params[:id])
   end
 end
