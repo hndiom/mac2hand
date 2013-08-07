@@ -50,7 +50,7 @@ class DealsController < ApplicationController
 
     if @deal.type_of == "sell"
       set_page_title("我正在出售 #{@deal.name}")
-      set_page_description("只要 NTD #{@deal.price}")
+      set_page_description("#{@deal.spec} 只要 NTD #{@deal.price}")
     elsif @deal.type_of == "want"
       set_page_title("我想要買 #{@deal.name}")
       set_page_description("詳情請點進來看喔!")
