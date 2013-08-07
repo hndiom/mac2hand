@@ -73,6 +73,8 @@ class DealsController < ApplicationController
   end
 
   def update
+    @cities = City.all
+    @dists = Dist.all
     @deal = Deal.find(params[:id])
 
     if @deal.update_attributes(params[:deal])
