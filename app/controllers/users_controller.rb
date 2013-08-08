@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :login_required
   
   def edit
-    @deals = current_user.deals.paginate(:page => params[:page], :per_page => 5)
+    @deals = current_user.deals.paginate(:page => params[:page], :per_page => 25)
   end
 
   def profile
