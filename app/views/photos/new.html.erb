@@ -27,11 +27,11 @@
           </span>
           <button type="submit" class="btn btn-primary start">
             <i class="icon-upload icon-white"></i>
-            <span>開始上傳</span>
+            <span>全部上傳</span>
           </button>
           <button type="reset" class="btn btn-warning cancel">
             <i class="icon-ban-circle icon-white"></i>
-            <span>取消上傳</span>
+            <span>全部取消</span>
           </button>
           <!--
           <button type="button" class="btn btn-danger delete">
@@ -60,7 +60,7 @@
   
   <div class="row">
     <div class="span12" align="center">
-      <%= link_to("完成", edit_deal_path(@deal), :class => "btn btn-success") %>
+      <%= link_to("返回商品 (記得要先按藍色的上傳喔)", edit_deal_path(@deal), :class => "btn btn-success") %>
     </div>
   </div>
 </div>
@@ -91,7 +91,7 @@
     <td class="start">{% if (!o.options.autoUpload) { %}
       <button class="btn btn-primary">
         <i class="icon-upload icon-white"></i>
-        <span>{%=locale.fileupload.start%}</span>
+        <span>單張上傳</span>
       </button>
       {% } %}</td>
     {% } else { %}
@@ -100,7 +100,7 @@
     <td class="cancel">{% if (!i) { %}
       <button class="btn btn-warning">
         <i class="icon-ban-circle icon-white"></i>
-        <span>{%=locale.fileupload.cancel%}</span>
+        <span>取消這張</span>
       </button>
       {% } %}</td>
   </tr>
