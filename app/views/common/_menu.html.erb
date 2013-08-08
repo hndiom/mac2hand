@@ -9,13 +9,14 @@
 						<% end -%>
 					</div>
 					<%= render_list :class => "nav" do |li| %>
-		        <% li << link_to("Deals", "/deals") %>
+		        <% li << link_to("所有交易", "/deals") %>
 		        <%# li << link_to("Contact", "/contact_us") %>
 						<% if current_user %>
 							<% li << link_to(current_user.name, account_path, :class => "username") %>
-							<% li << link_to("Logout", "/logout") %>
+							<% li << link_to("登出", "/logout") %>
 						<% else %>
-							<% li << link_to( "FB Login", user_omniauth_authorize_path(:facebook), :class => "username" ) %>
+							<% li << link_to( "登入", new_user_session_path, :class => "username" ) %>
+							<% li << link_to( "註冊", new_user_registration_path) %>
 						<% end %>
 	        <% end %>
 				</div>

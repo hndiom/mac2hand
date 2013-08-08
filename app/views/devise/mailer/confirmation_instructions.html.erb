@@ -1,0 +1,7 @@
+<p><%= @resource.email %> 您好：</p>
+
+<p>歡迎您成為 Mac2Hand 會員！您可以點選下列連結以確認您的帳戶：</p>
+
+<p><%= link_to '確認我的帳戶', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :only_path => false ) %></p>
+
+<p>再次歡迎您成為 Mac2Hand 會員！</p>

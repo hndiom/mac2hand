@@ -48,6 +48,7 @@ group :assets do
 end
 
 group :development do
+  gem "letter_opener"
   gem "capistrano"
   gem "capistrano-ext"
   gem "rvm-capistrano"

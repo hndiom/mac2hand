@@ -1,0 +1,19 @@
+<%= render :partial => "common/page_header" %>
+<br>
+<div class="span6 offset3 well">
+  <div class="box clearfix" align="center">
+    <div class="box form-container request-for-reset">
+      <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "form-horizontal form-forget-password" }) do |f| %>
+            <%= f.error_notification %>
+            
+            <legend>請輸入註冊時的 E-Mail 以重設密碼</legend>
+            
+            <%= f.input :email, :required => true %>
+
+            
+            <%= f.button :submit, "送出密碼修改指示", :class => "btn btn-primary btn-submit" %>
+            
+          <% end %>
+    </div>
+  </div>
+</div>
