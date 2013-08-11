@@ -32,5 +32,6 @@ Mac2hand::Application.routes.draw do
   
   match "/account" => "users#edit", :as => :account
   match "/account/profile" => "users#profile"
+  get "tags/:tag", to: "deals#index", as: :tag
 
 end

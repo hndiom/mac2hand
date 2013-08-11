@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#mytags").tagit({
+      availableTags: <%= Deal.tag_counts.map(&:name).to_json.html_safe %> ,
+      singleField: true,
+      singleFieldNode: $('#tag_list')
+    });
+
+    $(".tag-btn").click(function(){
+      value = $("#tag_list").val();
+      if(value.length > 0){
+        if(value.indexOf($(this).text()) == -1){
+          $("#mytags li.tagit-new").before('<li class="tagit-choice ui-widget-content ui-state-default ui-corner-all tagit-choice-editable"><span class="tagit-label">'+$(this).text()+'</span></li>')
+          value = value+","+$(this).text();
+        }
+      }else{
+        value = $(this).text();
+        $("#mytags li.tagit-new").before('<li class="tagit-choice ui-widget-content ui-state-default ui-corner-all tagit-choice-editable"><span class="tagit-label">'+$(this).text()+'</span></li>')
+      }
+      $("#tag_list").val(value)
+    })
+  });
+</script>

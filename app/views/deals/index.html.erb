@@ -6,8 +6,8 @@
       <%= link_to("我想買二手", want_deals_path, :class => "btn btn-warning btn-large") %>
       <hr>
     </div>
-    <div class="span12" align="center">
-      <table class="table table-bordered">
+    <div class="span9" align="center">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th width="50px">No.</th>
@@ -36,6 +36,14 @@
         </tbody>
       </table>
       <%= will_paginate(@deals) %>
+    </div>
+    <div class="span3">
+      <div id="tag_cloud">
+        <h4>Tags</h4>
+        <% tag_cloud Deal.is_published.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to("#{tag.name} (#{tag.count})", tag_path(tag.name), :class => "#{css_class}") %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

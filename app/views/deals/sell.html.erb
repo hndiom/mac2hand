@@ -17,6 +17,14 @@
               <%= f.input :price, :label => "欲售價格 (台幣)", :placeholder => "ex. 19900" %>
               <%= f.input :spec, :label => "商品規格", :placeholder => "ex. i7 8G RAM" %>
               <%= f.input :warranty, :label => "保固狀態",:prompt => "--請選擇保固狀態--", :collection => ["公司保固內", "已過保", "保固狀態不明"] %>
+              <%= f.label("Tags ( 可從下方選擇, 或直接輸入新增 )") %>
+              <%= f.hidden_field(:tag_list, :id => "tag_list") %>
+              <ul id="mytags"></ul>
+              <br>
+              <%= f.label("Tags") %>
+              <% Deal.tag_counts.order(:name).each do |tag| %>
+              <%= content_tag(:span, tag, :class => "btn tag-btn btn-warning") %>
+              <% end %>
             <% end %>
             <%= content_tag(:div, :class => "span3") do %>
               <%= f.input :deliver_method, :label => "交貨方式", :collection => ["相約面交", "宅配郵寄", "其它"], :prompt => "--請選擇交貨方式--" %>
@@ -35,3 +43,6 @@
     </div>
   </div>
 </div>
+<%= content_for :javascripts do %>
+<%= render :partial => "tags_js" %>
+<% end %>

@@ -5,7 +5,11 @@ class DealsController < ApplicationController
   before_filter :find_deal, :only => [:show, :edit, :update, :publish, :cancel_publish, :destroy]
 
   def index
-    @deals = Deal.is_published.recent.paginate(:page => params[:page], :per_page => 25)
+    if params[:tag]
+      @deals = Deal.tagged_with(params[:tag]).is_published.recent.paginate(:page => params[:page], :per_page => 25)
+    else
+      @deals = Deal.is_published.recent.paginate(:page => params[:page], :per_page => 25)
+    end
   end
 
   def want

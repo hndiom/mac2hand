@@ -1,4 +1,10 @@
 <%= render :partial => "common/page_header" %>
+<div id="tag_cloud" class="span12">
+  <h4>相關 Tags</h4>
+  <% tag_cloud Deal.is_published.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to("#{tag.name} (#{tag.count})", tag_path(tag.name), :class => "#{css_class}") %>
+  <% end %>
+</div>
 <section class="portfolio">
   <div class="container">
     <div class="row">

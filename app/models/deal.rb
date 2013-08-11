@@ -14,6 +14,7 @@ class Deal < ActiveRecord::Base
   scope :is_published, where("published = 1")
   scope :recent, order("published_at DESC")
 
+  acts_as_taggable
   validates_presence_of :name, :spec, :deliver_method, :price, :contact_by, :category_id
 
   def publish

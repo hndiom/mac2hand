@@ -1,0 +1,19 @@
+#tag_cloud {
+  padding: 10px 0px;
+  line-height: 1.6em;
+  .s { font-size: 0.4em; padding: 2px;}
+  .m { font-size: 0.8em; padding: 2px;}
+  .l { font-size: 1.2em; padding: 2px;}
+  h4 {
+    padding: 0px;
+    margin-top: 0px;
+  }
+}
+
+#mytags {
+  margin-left: 0px;
+}
+
+span.tag-btn {
+  margin: 2px;
+}

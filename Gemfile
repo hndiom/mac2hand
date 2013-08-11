@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "rake"
-gem "rails", "3.2.11"
+gem "rails", "3.2.13"
 
 # Bundle edge Rails instead:
 # gem "rails", :git => "git://github.com/rails/rails.git"
@@ -20,6 +20,8 @@ group :assets do
   gem "jquery-ui-rails", "= 2.0.2"
 end
 
+gem "sneaky-save"
+gem "acts-as-taggable-on"
 gem "placeholdit"
 gem "jquery-rails"
 gem "devise"

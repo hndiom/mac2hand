@@ -20,6 +20,7 @@
 //= require jquery.fitvids
 //= require jquery-fileupload
 //= require taiwan_city_dists_helper
+//= require tag-it
 
 function dismissAlertAfterTime(timespan) {
   $('.alert').each(function(i, e) {
